@@ -6,14 +6,37 @@
 </head>
 <body>
 <script>
+// This function will run immediately, and make "name" available outside of this window, and will not leak into the global scope. 
+  (function() {
+    var name = 'Luke';
+  })();
+
+// Let and CONST will not leak into the global scope, but stay within the curly braces. 
   {
     const name = 'wes';
     console.log(name);
   }
 
+  // "i" will be available outside of the loop in this case. 
+  for(var i = 0; i < 10; i++) {
+    // Displays 1-10, each time it loops, and i is overwritten each time. 
+    // console.log(i);
+    setTimeout(function() {
+      // Displays final number only. 
+      console.log('The number is ' + i);
+    },1000);
+  }
+  
+  // This will display only the last number (10)
+  console.log(i);
+
+  // Same thing as above, with LET
+  // "i" will be available outside of the loop in this case. 
   for(let i = 0; i < 10; i++) {
+    // Displays 1-10, each time it loops. 
     console.log(i);
     setTimeout(function() {
+      // Displays "i" separately with each time through the loop
       console.log('The number is ' + i);
     },1000);
   }
