@@ -6,15 +6,23 @@
 </head>
 <body>
 <script>
+
   const key = 'abc123';
   let points = 50;
   let winner = false;
 
+
+  if(points > 40 ){
+    // This variable, though it has the same name, is considered a different variable bc it is defined in the conditional
+    let winner = true;
+  }
+  // Const cannot be updated, but elements inside of it can. SO "age" can be changed. 
   const person = {
     name: 'Wes',
     age: 28
   }
 
+  // You can update items within the object, even though it is a CONST.
   const wes = Object.freeze(person);
 
 </script>

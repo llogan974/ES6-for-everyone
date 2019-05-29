@@ -6,8 +6,18 @@
 </head>
 <body>
 <script>
+  // If trying to access VAR before it is defined, you get "undefined", but you can tell if it is created or not
   console.log(pizza);
+  var pizza = 'Deep Dish 🍕🍕🍕';
+
+  // If trying to access as a CONST (or let), you will get an error :)
   const pizza = 'Deep Dish 🍕🍕🍕';
+
+  /* What should I use?
+  Use const by default. 
+  Use LET if you need to REBIND (update) the variable.
+  Do not use VAR in ES6. 
+  */  
 
 </script>
 </body>
