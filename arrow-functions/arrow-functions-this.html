@@ -61,6 +61,46 @@
   </div>
 
   <script>
+
+    /* 
+    Option - shift - A opens a block comment in VS code. 
+
+    Arrow functions principal:
+    THIS does not get RE-BOUND
+     */
+
+     const box = document.querySelector('.box');
+
+    /* 
+    If using a regular function, the event listener "this" works. 
+    If using an arrow function, the event listener "this" does not work.
+    */
+
+    //  Below will log the "box" object properly. 
+     box.addEventListener('click', function(){
+       console.log(this);
+
+      // Do this part (define first and second) to help with closing. 
+       let first = 'opening';
+       let second = 'open';
+
+      // Next two lines will be learned later in the course, but also help with closing
+       if(this.classList.contains(first)){
+         [first, second] = [second, first];
+       }
+       this.classList.toggle('opening');
+
+      // Use arrow function in this case (inside of the other function)
+      // Do arrow function because it inherits value of THIS from the parent :)
+       setTimeout(() => {
+         this.classList.toggle('open');
+       }, 500);
+     })
+
+    // Below will log the "window" property, not the box
+     box.addEventListener('click', () => {
+       console.log(this);
+     })
   </script>
 
 </body>

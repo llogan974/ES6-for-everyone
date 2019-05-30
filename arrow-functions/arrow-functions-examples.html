@@ -6,14 +6,23 @@
 </head>
 <body>
 <script>
-
+/* 
+What if the data is not in the format I want?
+USE AN ARROW FUNCTION!
+ */
 const race = '100m Dash';
 const winners = ['Hunter Gath', 'Singa Song', 'Imda Bos'];
 
+// Return an OBJECT from each item. 
+// Both "winner" and "i" are being created here as ARGS for the map function.
+// After creating "winner", you tell the function how to use it (beside "name" in this instance) 
+// So for each item in "winnders", you add name:, then race:. then place. 
 const win = winners.map((winner, i) => ({name: winner, race, place: i + 1}));
 
+// Filter the list for people older than 60:
 const ages = [23,62,45,234,2,62,234,62,34];
 
+// For each "ages" in the array above, name it "age", and check if that new argument "age" is greater than 60. 
 const old = ages.filter(age => age >= 60);
 console.log(old);
 
