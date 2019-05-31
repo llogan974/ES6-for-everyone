@@ -6,10 +6,16 @@
 </head>
 <body>
 <script>
+
+  /* 
+  This function takes in three arguments.
+  Default values for those arguments when the function is defined: 
+   */
   function calculateBill(total, tax = 0.13, tip = 0.15) {
     return total + (total * tax) + (total * tip);
   }
 
+  // If you want to inherit the default values of the function, pass in "undefined"
   const totalBill = calculateBill(100, undefined, 0.25);
   console.log(totalBill);
 </script>
