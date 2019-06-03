@@ -16,20 +16,26 @@
   </div>
 
 <script>
+  // Create an array with a key/value pair
   const dict = {
     HTML: 'Hyper Text Markup Language',
     CSS: 'Cascading Style Sheets',
     JS: 'JavaScript'
   };
 
+  // Make a new array of values wrapped in an 'abbr' tag
+  // Use the three dots if you are uncertain how many variables there will be
   function addAbbreviations(strings, ...values) {
+    // Take the values and map over them. THen, check if there is a value in the dictionary
     const abbreviated = values.map(value => {
       if(dict[value]) {
+        // If there is a 'dict' with a key of 'value', then do this:
         return `<abbr title="${dict[value]}">${value}</abbr>`;
       }
       return value;
     });
 
+    // Reduce loops over each item and build the string as we go, so you dont' have to loop. It takes the function, and what you start with. 
     return strings.reduce((sentence, string, i) => {
       return `${sentence}${string}${abbreviated[i] || ''}`;
     }, '');
@@ -37,8 +43,12 @@
 
   const first = 'Wes';
   const last = 'Bos';
+  // You can add strings in the template
+  // These strings need to pull from the 'dict' listed above
+  // Use the function 'addAbbreviations' below.
   const sentence = addAbbreviations`Hello my name is ${first} ${last} and I love to code ${'HTML'}, ${'CSS'} and ${'JS'}`;
 
+// Create a place where you can add the sentence created above.
   const bio = document.querySelector('.bio');
   const p = document.createElement('p');
   p.innerHTML = sentence;

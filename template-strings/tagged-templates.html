@@ -5,15 +5,23 @@
   <title>Tagged Templates</title>
   <style>
     .hl {
-      background: #ffc600;
+      background: #99badd;
     }
   </style>
 </head>
 <body>
 <script>
+
+  // Ability to TAG things.
+  // Make a function like this:
+  // The three dots are used to take all values passed into an argument
   function highlight(strings, ...values) {
+    // Debugger will stop execution and help explain things like values. Found in console under sources > scope
+    // debugger;
     let str = '';
+    // You can use one of many loops: map, foreach, etc
     strings.forEach((string, i) => {
+      // Content Editable allows you to add change the text on the front end of the page. Pretty cool!
       str += `${string} <span contenteditable class="hl">${values[i] || ''}</span>`;
     });
     return str;
@@ -22,6 +30,7 @@
   const name = 'Snickers';
   const age = 100;
 
+// Return the name of the function in front of the template. Whatever the function is going to be is what "sentence" becomes
   const sentence = highlight`My dog's name is ${name} and he is ${age} years old`;
   document.body.innerHTML = sentence;
   console.log(sentence);

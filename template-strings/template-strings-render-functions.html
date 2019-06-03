@@ -6,12 +6,16 @@
 </head>
 <body>
 <script>
+  // What if you want to nest several functions deep? 
+  // Create a RENDER FUNCTION, different components to handle the functions
+  
   const beer = {
     name: 'Belgian Wit',
     brewery: 'Steam Whistle Brewery',
     keywords: ['pale', 'cloudy', 'spiced', 'crisp']
   };
 
+// Create a function with a template literal, used within another template literal. 
   function renderKeywords(keywords) {
     return `
       <ul>
@@ -20,6 +24,8 @@
     `;
   }
 
+
+// Run the 'renderKeywords' function inside of this template literal.
   const markup = `
     <div class="beer">
       <h2>${beer.name}</h2>
