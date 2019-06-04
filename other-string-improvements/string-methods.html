@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>New String Methods</title>
+</head>
+<body>
+
+<script>
+
+
+  /* To make it case insensitive, you still need to use regex
+  Strings come with 4 methods for strings. 
+  Examples: does the course start with RFB?
+   */
+const course = 'RFB2';
+const flightNumber = '20-AC2018-jz';
+const accountNumber = '825242631RT0001';
+
+const make = 'BMW';
+const model = 'x5';
+const colour = 'Royal Blue';
+
+// .startsWith()
+
+// .endsWith()
+// Check if it includes RT at a certain point in the string, and ignore the rest:
+const accountNumber = '825242631RT0001';
+accountNumber.endsWith('RT', 11);
+
+// .includes()
+// Check if it includes this string anywhere
+const flightNumber = '20-AC2018-jz';
+flightNumber.includes('AC2');
+
+// .repeat()
+// Allows you to take a string and repeat it. 
+// Use this to align your text on the page
+
+// Take in the string and the length with a default value of 20
+function leftPad(str, length = 20) {
+
+  // Use template literal, add a blank and repeat the length.
+  // Then, repeat the blank space.
+  // THen, calculate the number of times to repeat the blank: Lenght MINUS the lenght of the string, then display the value of the string. 
+  
+  // Result: 
+  return `→ ${' '.repeat(length - str.length)}${str}`;
+}
+
+console.log(leftPad(make));
+console.log(leftPad(model));
+console.log(leftPad(colour));
+
+
+</script>
+
+</body>
+</html>
