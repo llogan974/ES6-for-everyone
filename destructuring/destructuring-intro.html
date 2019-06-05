@@ -6,6 +6,13 @@
 </head>
 <body>
 <script>
+
+  /*
+  // Destructuring is a way to extract data from arrays, objects, dates, and sets into our own variable.
+For example, if you have a variable with several properties,
+and you need to create a variable from something inside the object or
+variable.
+   */
   const person = {
     first: 'Wes',
     last: 'Bos',
@@ -13,8 +20,18 @@
     city: 'Hamilton',
     twitter: '@wesbos'
   };
+/*
+Below, IS NOT an object, it is a DESTRUCTURED SYNTAX
+So, below takes PERSON, and extracts first, last, and twitter
+These come from the variable listed above.
+*/
 
   const { first, last, twitter } = person;
+
+/*
+What if you want to target nested data (like an API like below?)
+DESTRUCTURE and target what you need:
+ */
 
   const wes = {
     first: 'Wes',
@@ -30,9 +47,16 @@
     }
   };
 
+// Below the key (twitter) and value (tweet) are being created as
+// wes.links.social
+// These have to be recreated because twitter is used above
   const { twitter: tweet, facebook: fb } = wes.links.social;
 
+
   const settings = { width: 300, color: 'black' }  // height, fontSize
+
+  // What if new objects need to be created?
+  // Create a default value like below:
   const { width = 100, height = 100, color = 'blue', fontSize = 25} = settings;
 
 </script>
