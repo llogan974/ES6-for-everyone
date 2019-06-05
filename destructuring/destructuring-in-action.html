@@ -6,10 +6,17 @@
 </head>
 <body>
 <script>
+  // Use let because these values are getting updated
   let inRing = 'Hulk Hogan';
   let onSide = 'The Rock';
 
+/*
+How to swap values? In this case, when one person goes in the
+ring, the other person goes out.
+ */
   console.log(inRing, onSide);
+
+  // This will change the values in the array
   [inRing, onSide] = [onSide, inRing];
   console.log(inRing, onSide);
 
