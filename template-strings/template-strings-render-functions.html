@@ -6,16 +6,17 @@
 </head>
 <body>
 <script>
-  // What if you want to nest several functions deep? 
+  // What if you want to nest several functions deep?
   // Create a RENDER FUNCTION, different components to handle the functions
-  
+
   const beer = {
     name: 'Belgian Wit',
     brewery: 'Steam Whistle Brewery',
     keywords: ['pale', 'cloudy', 'spiced', 'crisp']
   };
 
-// Create a function with a template literal, used within another template literal. 
+// Create a function with a template literal, used within another template literal.
+// This function will take "keywords" and put each "keyWORD" in an li.
   function renderKeywords(keywords) {
     return `
       <ul>
