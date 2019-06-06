@@ -5,6 +5,8 @@
   <title>Iterables & Looping</title>
 </head>
 <body>
+
+
   <p>Hi I'm p 01</p>
   <p>Hi I'm p 02</p>
   <p>Hi I'm p 03</p>
@@ -16,14 +18,39 @@
   <p>Hi I'm p 09</p>
   <p>Hi I'm p 10</p>
 <script>
-  const cuts = ['Chuck', 'Brisket', 'Shank', 'Short Rib'];
 
+/*
+How to repeat a bunch of html tags?
+p{hi im p $$}*10
+h5{class="header$"}*5
+
+For Of can be used on iterables
+dom collection, arguments, string, array, map, or a set
+
+*/
+
+  // const cuts = ['Chuck', 'Brisket', 'Shank', 'Short Rib'];
+
+// if this is run in the console, it will work.
+// in the console, type cuts.entries(), you will see ArrayIterator{}
+// So, you would have to store it in a const meat = cuts.entries();
+// Then, run "meat" and you would see each entry as an array
+  // for (const cut of cuts) {
+  //   console.log(cut);
+  // }
+
+  // You can destructure this immediately
   // for (const [i, cut] of cuts.entries()) {
   //   console.log(`${cut} is the ${i + 1} item`);
   // }
 
+  // What if you dont know how many arguments will be passed in?
+  // What if you dont want to convert it to an array?
+  // Use the keyword "arguments"
   // function addUpNumbers() {
   //   let total = 0;
+
+  //   // arguments is array-ish, an object that just holds the value
   //   for (const num of arguments) {
   //     total += num;
   //   }

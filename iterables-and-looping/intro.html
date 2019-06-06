@@ -6,6 +6,13 @@
 </head>
 <body>
 <script>
+
+  /*
+  An iterable is anything that can be looped over:
+  Arrays, strings, maps, sets, generators can ALL be looped over.
+
+
+   */
   /* eslint-disable */
    Array.prototype.shuffle = function() {
      var i = this.length, j, temp;
@@ -19,13 +26,21 @@
     return this;
   };
 
+// Here is an array, and it is used in the for loop below
   const cuts = ['Chuck', 'Brisket', 'Shank', 'Short Rib'];
 
   cuts.shop = 'MM MEats';
 
+
+  // Old way of doing things: for
+  // disadvantage: it has a confusing syntax
+
   // for (let i = 0; i < cuts.length; i++) {
   //   console.log(cuts[i]);
   // }
+
+// Another old way of doing it: forEach
+// Disadvantage of forEach: you cannot stop the loop once it starts
 
   // cuts.forEach((cut) => {
   //   console.log(cut);
@@ -34,12 +49,21 @@
   //   }
   // });
 
+// Final old loop:
+// disadvantage of for of: of anyone adds values via PROTOTYPE,
+// it iterates over the code of the loop itself.
+
   // for (const index in cuts) {
   //   console.log(cuts[index]);
   // }
 
+
+  // for of can be used on anything BUT objects;
+
   for (const cut of cuts) {
+    // 'break' will stop the loop from continuing.
     if(cut === 'Brisket') {
+      // 'continue' will skip over an interation, and continue to the next iteration
       continue;
     }
     console.log(cut);
