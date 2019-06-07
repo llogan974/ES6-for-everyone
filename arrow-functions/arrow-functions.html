@@ -6,13 +6,13 @@
 </head>
 <body>
 <script>
-/* 
+/*
 
 Shift Option A adds a block-level comment.
 
-Benefits of arrow functions: 
-1) implicit returns. 
-2) Shorter and more concise. 
+Benefits of arrow functions:
+1) implicit returns.
+2) Shorter and more concise.
 3) Doesnt rebind "This" when using arrow function inside another function (like click handlers)
 
 
@@ -21,12 +21,12 @@ What are IMPLICIT RETURNS?
 How to pass in ARGUMENTS to an arrow function?
 How to pass in ARGS when defined as a CONST?
  */
-  
+
   const names = ['wes', 'kait', 'lux'];
 
-  /* 
-  Add a name to the array above. 
-  THis is the OLD method. 
+  /*
+  Add a name to the array above.
+  THis is the OLD method.
   Notice the function has a name (called "name")
   */
   const fullNames = names.map(function(name) {
@@ -39,28 +39,28 @@ How to pass in ARGS when defined as a CONST?
   });
 
 
-  /* 
+  /*
   If only 1 parameter, you can do this  (remove parens around "name"):
   Below:
   names = name of array from above
   map = method being used
   name = variable being passed in. It is being created here and is not defined elsewhere.
-  */ 
+  */
 
   const fullNames3 = names.map(name => {
     return `${name} bos`;
   });
 
-  // IMPLICIT RETURN means you do not type "return", and it returns automatically. 
+  // IMPLICIT RETURN means you do not type "return", and it returns automatically.
   // The word "return" can be removed
   const fullNames4 = names.map(name => `${name} bos`);
 
   // If you do not need a name for the variable, you can leave it out like this:
   const fullNames5 = names.map(() => `cool bos`);
 
-  /* 
-  Named functions, like first item below, are good for tracing when there is a bug. 
-  Anonymous Functions dont have a name, but can be stored in a variable like second item below. 
+  /*
+  Named functions, like first item below, are good for tracing when there is a bug.
+  Anonymous Functions dont have a name, but can be stored in a variable like second item below.
   */
 
   function sayMyName(name) {
