@@ -177,11 +177,47 @@
         "display_src":"https://scontent.cdninstagram.com/hphotos-xpt1/t51.2885-15/e35/11326072_550275398458202_1726754023_n.jpg"
      }
   ];
+
+//   Above is info from instagram's API
+//
   const code = 'VBgtGQcSf';
+
+/*
+Goals in this task:
+1) find a single item in an array
+2) find multiple items in the array
+3) find the index of an item in an array
+
+ */
+// posts.find will loop over the array until it finds the item it is looking for
+// posts.find.multiple will find multiple items
+
+//   For each post, does post.code equal what we are looking for?
   const post = posts.find(post => post.code === code);
 
+// long hand version of code above:
+//   const post = posts.find(post => {
+//      if(post.code === 'VBgtGQcSf'){
+//         return true;
+//      }
+//      return false;
+//   })
+
+// const code = 'VBgtGQcSf';
+// What if I just want to find WHERE it is (the index?)
+// posts = complete list of data
+// post is created here
+// code is the string we are searching the index for.
   const postIndex = posts.findIndex(post => post.code === code);
   console.log(postIndex);
+
+// Longhand version of code above:
+//     const postIndex = posts.findIndex((post => {
+//      if(post.code === 'VBgtGQcSf'){
+//         return true;
+//      }
+//      return false;
+//   }));
 
 </script>
 </body>

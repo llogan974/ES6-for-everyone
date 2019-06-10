@@ -6,9 +6,29 @@
 </head>
 <body>
 <script>
-  const ages = [32, 15, 19, 12];
+const names = ['Selma', 'Ted', 'Mike', 'Sam', 'Sharon', 'Marvin'];
+
+// Filter will return a new array
+
+const sNames = names.filter(name => name.charAt(0) === 'S');
+console.log(sNames);
+
+/*
+Array.some and Array.every
+
+Array.some will check the data in an array to see if SOME or EVERY item matches
+what you are looking for in the array
+ */
+
 
   // 👵👨 is there at least one adult in the group?
+  // This will chack the array values, and return a boolean
+
+  const ages = [32, 15, 19, 12];
+
+  const no15 = ages.filter( not15 => not15 !== 15 );
+  console.log(no15);
+
   const adultPresent = ages.some(age => age >= 18);
   console.log(adultPresent);
 
