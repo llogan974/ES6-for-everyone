@@ -30,7 +30,25 @@
   <h2 class="jump">SPREADS!</h2>
 
 <script>
-  
+  // Map, spread, QS all
+  const heading = document.querySelector('.jump');
+
+  // innherhtml because that html tag, SPAN, is being added.
+  // Run the function, and add the textcontent of "heading"
+  heading.innerHTML = sparanWrap(heading.textContent);
+
+
+function sparanWrap(word){
+  // spread the word, and map over each LETTER
+  // Use a spread instead of a map
+  return [...word].map(letters =>
+  // for each letter, add a span, and do JOIN becuase we want
+  // a tring, not an array
+    `<span>${letters}</span>`).join('');
+}
+
+
+
 </script>
 </body>
 </html>
