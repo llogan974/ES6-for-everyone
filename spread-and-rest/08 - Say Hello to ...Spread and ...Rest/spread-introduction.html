@@ -6,11 +6,22 @@
 </head>
 <body>
 <script>
+/*
+What is a spread operator?
+It goes over iterables- arrays strings, nodes, document objects, maps and sets
 
+Strings and arrays.
+ */
   const featured = ['Deep Dish', 'Pepperoni', 'Hawaiian'];
   const specialty = ['Meatzza', 'Spicy Mama', 'Margherita'];
 
+/* Make a third array that combines pizzas from abov:*/
+
+// Take all items and put it into an array
   const pizzas = [...featured, 'veg', ...specialty];
+
+  // What if you want to copy an array, and only update the copy?
+  // Do this (below) and if fridayPizzas is updates, pizzas will notbe
   const fridayPizzas = [...pizzas];
 
   const deepDish = {
