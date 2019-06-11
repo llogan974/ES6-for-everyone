@@ -11,18 +11,43 @@
     <p>Randy</p>
   </div>
 <script>
+  /*
+  IMPORTANT: querySelectorAll will return a NODE LIST
+   */
+
+// These would both do the same thing.
+// Select item as an object:
+  const people = document.querySelectorAll('.people p');
+
+  // Select item, immediately change to array.
   const people = Array.from(document.querySelectorAll('.people p'));
+
+  // Same as above, using spread operator
+  // It will take the NODE LIST, and create an array
+  const people = [...document.querySelectorAll('.people p')];
+
+    /*
+  If we wanted to map over the people listed above, we couldnt because
+  people is a node list.
+  Look at the exsamples above.
+   */
   const names = people.map((person) => person.textContent );
 
+// This creates an object
   const deepDish = {
     pizzaName: 'Deep Dish',
     size: 'Medium',
     ingredients: ['Marinara', 'Italian Sausage', 'Dough', 'Cheese']
   };
 
+  // Create a new array from a property in an object
+  // Add two items (milk and flour) then add all ingredients
+  // through a spread operator, targeting the object (deepdish) and ingredients from that object
   const shoppingList = ['Milk', 'Flour', ...deepDish.ingredients];
   // console.log(shoppingList);
 
+
+// How to remove an object from an array of objects
   const comments = [
     { id: 209384, text: 'I love your dog!' },
     { id: 523423, text: 'Cuuute! 🐐' },
@@ -30,8 +55,13 @@
     { id: 192834, text: 'Nice work on this wes!' },
   ];
   const id = 632429;
+// 1st step Figure out where the comment to be removed actually is?
+// Use findIndex. Return the comment ID matches the comment id we are trying to find,
   const commentIndex = comments.findIndex(comment => comment.id === id);
 
+// Then, make a new array of comments (excluding the bad comment)
+// Slice up to the comment we want, then slice from comment till END
+// Using spread, all comments will be put into newComments
   const newComments = [...comments.slice(0,commentIndex), ...comments.slice(commentIndex + 1)];
   console.log(newComments);
 
