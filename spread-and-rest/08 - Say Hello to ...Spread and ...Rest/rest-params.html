@@ -6,18 +6,33 @@
 </head>
 <body>
 <script>
-  // function convertCurrency(rate, tax, tip, ...amounts) {
-  //   console.log(rate, tax, tip, amounts);
-  //   return amounts.map(amount => amount * rate);
-  // }
 
-  // const amounts = convertCurrency(1.54, 10, 23, 52, 1, 56);
-  // console.log(amounts);
+  /*
+  ...Rest takes many items, and packs them into a single array.
+  It is the exact opposite of SPREAD.
 
+  Take below, if you dont know how many 'amounts' there are:
+  */
+  function convertCurrency(rate, ...amounts) {
+    // This will take the first arg (rate), and display it.
+    // All other args will be passed into an array called "amounts"
+    console.log(rate, amounts);
+    return amounts.map(amount => amount * rate);
+  }
+
+  const amounts = convertCurrency(1.54, 10, 23, 52, 1, 56);
+  console.log(amounts);
+
+
+  // Another example:
   const runner = ['Wes Bos', 123, 5.5, 5, 3, 6, 35];
+
+  // First item is name, second is id, and all others are "runs"
+  // All "runs" are bundled into an array
   const [name, id, ...runs] = runner;
   console.log(name, id, runs);
 
+  // We looked at this in a previous lesson:
   const team = ['Wes', 'Kait', 'Lux', 'Sheena', 'Kelly'];
   const [captain, assistant, ...players] = team;
   console.log(captain, assistant, players)

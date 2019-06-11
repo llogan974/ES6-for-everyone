@@ -9,10 +9,19 @@
 
   /*
   A great use of spread operators is spreading into a function
+  In this example, take both arrays an put into 1 array
+  Old way was this, but hard to understand
 
+  This old method below, takes inventors, will push items to it, using
+  the "apply" method, and it runs the function you run apply against,
+  for every item in the argument:
+
+  inventors.push.apply(inventors, newInventors);
    */
   const inventors = ['Einstein', 'Newton', 'Galileo'];
   const newInventors = ['Musk', 'Jobs'];
+
+  // Using spread operator:
   inventors.push(...newInventors);
   console.log(inventors);
 
@@ -21,7 +30,13 @@
   function sayHi(first, last) {
     alert(`Hey there ${first} ${last}`);
   }
+/*
+Old way:
+sayHi(name[0], name[1]);
 
+If there are a lot of arguments, this wont work. Instead, spread all items
+from the array 'name' into the function
+*/
   sayHi(...name);
 
 </script>
