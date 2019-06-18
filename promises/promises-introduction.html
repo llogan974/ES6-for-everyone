@@ -6,11 +6,32 @@
 </head>
 <body>
 <script>
+/*
+1) Promises are used when fetching JSON APIS
+What is a promise? Something that will happen in the future.
+
+JS is asynchronous.
+fetch will try and get the posts (in this case), and put the
+PROMISE in the variable it is
+assigned to.
+
+
+
+*/
+
+
 const postsPromise = fetch('https://wesbos.com/wp-json/wp/v2/posts');
 
 postsPromise
+
+// .then is a callback, and runs ONLY when data comes back
   .then(data => data.json())
+
+// This is an implicit return, that will pull all the data
+// and return it as an object.
   .then(data => { console.log(data) })
+
+// What if there is an error with the data?
   .catch((err) => {
     console.error(err);
   })

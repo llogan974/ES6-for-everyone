@@ -6,16 +6,32 @@
 </head>
 <body>
 <script>
+
+  /*
+  To create a promise, create a variable and store new Promise inside of it.
+  Promise will take two items: resolve, and reject.
+  The ideas is that promises will eaither resolve (and be successful),
+  or it will fail.
+
+  */
   const p = new Promise((resolve, reject) => {
+    // Dont start JS from running, run this immediately
+    // We can do this bc JS is ASYNCHRONOUSE
     setTimeout(() => {
+
+      // Add Error() object, and this will allow tracing for debugging
       reject(Error('Err wes isn\'t cool'));
     }, 1000);
   });
 
+
   p
+  // Once the data is fetched, it will run this function:
     .then(data => {
       console.log(data);
     })
+
+    // The actual error wont run until this line
     .catch(err => {
       console.error(err);
     });

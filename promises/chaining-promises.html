@@ -6,6 +6,12 @@
 </head>
 <body>
 <script>
+
+  /*
+  This is good for FLOW CONTROL, and mostly used in the backend.
+  These two arrays are acting like a DB in this instance, so
+  we are using promises.
+  */
   const posts = [
     { title: 'I love JavaScript', author: 'Wes Bos', id: 1 },
     { title: 'CSS!', author: 'Chris Coyier', id: 2 },
@@ -18,6 +24,7 @@
     { name: 'Addy Osmani', twitter: '@addyosmani', bio: 'Googler' },
   ];
 
+  // create two functions, and chain them together using promises.
   function getPostById(id) {
     // create a new promise
     return new Promise((resolve, reject) => {
