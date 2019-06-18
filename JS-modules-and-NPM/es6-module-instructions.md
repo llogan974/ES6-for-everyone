@@ -1,3 +1,18 @@
+<!--
+What is a JS module?
+It is not new, but is becoming popular.
+A file w 1 or many functions inside of it, and those functions are available to
+other files.
+
+Support for ES6 modules is not huge.
+We need some tooling to use this.
+
+First step: setup package.json, then install webpack.
+The standard for getting modules is NPM.
+
+1st step, create an entry point, app.js.
+
+ -->
 1. First Install your dependencies:
 
 ```bash
