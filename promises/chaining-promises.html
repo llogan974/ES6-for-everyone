@@ -11,6 +11,8 @@
   This is good for FLOW CONTROL, and mostly used in the backend.
   These two arrays are acting like a DB in this instance, so
   we are using promises.
+
+  It is good to create one solid function, and chain other things off of that.
   */
   const posts = [
     { title: 'I love JavaScript', author: 'Wes Bos', id: 1 },
@@ -41,13 +43,15 @@
     });
   }
 
+  // This function will link the author with the author object listed above
   function hydrateAuthor(post) {
     // create a new promise
     return new Promise((resolve, reject) => {
-      // find the author
+      // find the author that matches the post
       const authorDetails = authors.find(person => person.name === post.author);
       if(authorDetails) {
         // "hydrate" the post object with the author object
+        // Basically replace the info with author object
         post.author = authorDetails;
         resolve(post);
       } else {

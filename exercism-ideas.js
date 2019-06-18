@@ -17,3 +17,5 @@ for(const index in cuts ){
 
 // This will give a name to each item in the array
 // const [letter1, letter2, letter3] = letters;
+
+// Array.find to match the protein string

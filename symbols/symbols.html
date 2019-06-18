@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Symbols</title>
+</head>
+<body>
+<script>
+
+  /*
+  A seventh primitive type:
+  number, string, boolean, object, null, undefined.
+
+  NOW, we have symbols
+  Symbols are unique identifiers and prevent naming collisions
+  If a property is created in a unique way, use a sumbol.
+  A symbol is a unique identifier
+
+  If keys need to be absolutely unique, use a symbol
+  */
+
+  // You can do these things, and they are both unique.
+  const wes = Symbol('Wes');
+  const person = Symbol('Wes');
+
+  //You cannot loop over them
+  const classRoom = {
+    [Symbol('Mark')] : { grade: 50, gender: 'male' },
+    [Symbol('olivia')]: { grade: 80, gender: 'female' },
+    [Symbol('olivia')]: { grade: 80, gender: 'female' },
+  };
+
+  for (const person in classRoom) {
+    console.log(person);
+  }
+
+  // If you do want to access all symbols, you can use getOwnPrpertySymbols
+  const syms = Object.getOwnPropertySymbols(classRoom);
+  const data = syms.map(sym => classRoom[sym]);
+  console.log(data);
+
+</script>
+</body>
+</html>
