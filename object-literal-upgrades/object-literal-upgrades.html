@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Object Literal Upgrades</title>
+</head>
+<body>
+<script>
+
+  // What if I want to make an object in ES6? What if the property is the same as the object?
+
+  const first = 'snickers';
+  const last = 'bos';
+  const age = 2;
+  const breed = 'King Charles Cav';
+  const dog = {
+
+/* If property and variable are named the same thing,
+you can just take out the name:
+*/
+    firstName: first,
+    last,
+    age,
+    breed,
+    pals: ['Hugo', 'Sunny']
+  };
+  console.log(dog);
+
+// What if you have mthods inside an object?
+/*
+
+*/
+  const modal = {
+    // YOu can leave out the word "function" and the colon:
+    create(selector) {
+
+    },
+    open(content) {
+
+    },
+    close(goodbye) {
+
+    }
+  }
+
+  function invertColor(color) {
+      return '#' + ("000000" + (0xFFFFFF ^ parseInt(color.substring(1),16)).toString(16)).slice(-6);
+  }
+
+/*
+A key needs to be placed on an object:
+ */
+  const key = 'pocketColor';
+  const value = '#ffc600';
+
+
+  const tShirt = {
+    [key]: value,
+    // Now you can use a function inside the key string, like this:
+    [`${key}Opposite`]: invertColor(value)
+  };
+
+
+  const keys = ['size', 'color', 'weight'];
+  const values = ['medium', 'red', 100];
+
+// This will pull one value off of each of the objects
+  const shirt = {
+    [keys.shift()]: values.shift(),
+    [keys.shift()]: values.shift(),
+    [keys.shift()]: values.shift(),
+  }
+  console.log(shirt);
+
+
+</script>
+</body>
+</html>
