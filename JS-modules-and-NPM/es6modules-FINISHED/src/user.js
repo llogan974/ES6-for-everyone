@@ -1,4 +1,7 @@
 import slug from 'slugify';
+
+// Use the curly braces like below if you are importing
+// a named export.
 import { url } from './config';
 import md5 from 'md5';
 

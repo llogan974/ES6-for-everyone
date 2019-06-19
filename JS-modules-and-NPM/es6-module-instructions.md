@@ -12,6 +12,22 @@ The standard for getting modules is NPM.
 
 1st step, create an entry point, app.js.
 
+
+variables are always scoped to their modules.
+They dont bleed into everything else.
+
+There are default exports, or NAMED exports.
+In order to make something available, you need to export it.
+
+There are DEFAULT, or NAMED imports.
+
+Default exports are made for the main thing that the module does.
+
+Named exports are for methods and modules.
+
+You can import it as whatever you want, meaning you can change the name on import
+
+Every module can have only 1 default export, but multiple NAMED exports.
  -->
 1. First Install your dependencies:
 
