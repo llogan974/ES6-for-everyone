@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Inheritance Review</title>
+</head>
+
+<body>
+  <script>
+
+    /*
+    Prototypal Inheritance
+    I am creating an OBJECT called DOG.
+    Use a capital "D" in dog, called a constructor function.
+    If you pass in a method on the original constructor, it will be inherited by everything
+    else that related to that class.
+    */
+    function Dog(name, breed) {
+      // Takes in the name and breed that are passed in
+      this.name = name;
+      this.breed = breed;
+    }
+
+    /* Add a prototype to this Object, and every "Dog" will inherit this prototype */
+    Dog.prototype.bark = function () {
+      console.log(`Bark Bark! My name is ${this.name}`)
+    }
+
+    // Create a new instance of this Object
+    const snickers = new Dog('Snickers', 'King Charles');
+    const sunny = new Dog('Sunny', 'Golden Doodle');
+
+    /* Add a method, or PROTOTYPE to this object. Then, any DOG will be able to inherit
+    this method
+    */
+    Dog.prototype.bark = function () {
+      console.log(`Bark Bark🇨🇦🇨🇦🇨🇦! My name is ${this.name} and I'm a ${this.breed}`);
+    }
+
+    Dog.prototype.cuddle = function () {
+      console.log(`I love you owner!`);
+    }
+  </script>
+</body>
+
+</html>
