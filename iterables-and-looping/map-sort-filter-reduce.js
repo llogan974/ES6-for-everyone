@@ -19,6 +19,29 @@ const companies = [
 
 const ages = [34, 45, 39, 12, 11, 25, 21, 15, 35, 26, 85];
 
+const meats = [
+  ['porter', 'beef'],
+  ['ribeye', 'beef'],
+  ['filet', 'beef'],
+  ['strip', 'beef'],
+  ['porkchops', 'pork'],
+  ['bacon', 'pork'],
+  ['lobster', 'seafood'],
+  ['shrimp', 'seafood'],
+  ['flounder', 'seafood'],
+];
+
+// Try: just pork
+const pork = meats.filter(meat => meat[1] == 'pork');
+// console.log(pork);
+
+// Try: just pork and seafood, name not category
+for (cut of meats) {
+  if (cut[1] == 'pork' || cut[1] == 'seafood') {
+    console.log(cut[0]);
+  }
+}
+
 // foreach wont return anything, but does loop through
 // Callback functions i need to understand
 // This function takes in 3 params: an iterator, an index, and the array;
@@ -60,7 +83,7 @@ const testMap = companies.map(
     // returns an object
     [index + 1, company.end - company.start]
 );
-console.table(testMap);
+// console.table(testMap);
 
 // Find square of ages
 
