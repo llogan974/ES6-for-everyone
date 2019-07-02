@@ -10,6 +10,33 @@
 <body>
   <script>
 
+    // // This will fetch a PROMISE
+    // fetch('https://api.github.com/users/wesbos')
+
+    //   // This will get the data, but not in json yet
+    //   .then(res => {
+
+    //     // Make sure it is formatted when returned
+    //     return res.json();
+
+    //     // Now you can do something with the data
+    //   }).then(res => {
+
+    //     // This is the json formatted data.
+    //     console.log(res);
+    //   }).catch(err => {
+    //     console.log('Oh no, you messed up!');
+    //     console.log(err);
+    //   })
+
+    const video = document.querySelector('.handsome');
+
+    navigator.mediaDevices.getUserMedia({ video: true })
+      .then(mediaStream => {
+        video.srcObject = mediaStream;
+        video.load();
+        video.play();
+      })
   </script>
 </body>
 
