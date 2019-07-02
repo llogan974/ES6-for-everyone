@@ -37,14 +37,75 @@
     }
 
     // This is an ASYNC that waits on BREATHE
-    async function go() {
+    // async function go() {
+
+    //   // To catch errors, wrap the whole thing in a try-catch block:
+    //   try {
+    //     // Start your engines
+    //     console.log('start');
+
+    //     // Wait until BREATHE gets a response on line 33 above, and assign to this variable
+    //     // if "await" is removed, you only get a promise
+    //     // "Await" means that the function is not executed UNTIL the promise above is either resolved OR rejected
+    //     const res = await breathe(590);
+
+    //     // Show breathe
+    //     console.log(res);
+    //     const res2 = await breathe(2000);
+    //     console.log(res2);
+    //     const res3 = await breathe(3000);
+    //     console.log(res3);
+    //     const res4 = await breathe(1000);
+    //     console.log(res4);
+    //     const res5 = await breathe(500);
+    //     console.log(res5);
+    //     const res6 = await breathe(300);
+    //     console.log(res6);
+    //     const res7 = await breathe(2500);
+    //     console.log(res7);
+    //     await breathe(600);
+    //     console.log('end');
+
+    //     // If there is an error, do this:
+    //   } catch (err) {
+    //     console.error('You broke the internet!!!!!');
+    //     console.error(err);
+    //   }
+
+    // }
+    // To catch errors, wrap the whole thing in a try-catch block:
+
+
+
+    // Do the same thing as above as a HIGH ORDER FUNCTION:
+    // A HIGH ORDER FUNCTION is a FUNCTION that takes in a FUNCTION and returns a FUNCTION
+
+    // catch errors is useful often. Catching errors within the function can be useful to fix it just then
+    // This is useful if you don't want to do a try -> catch for each one
+
+    //We have a function
+    function catchErrors(fn) {
+
+      // That returns a function (it doesnt matter how many arguments!)
+      return function (...args) {
+
+        // That returns a function, with a CATCH err on the end.
+        // This also uses a spread, so it doesnt matter how many args.
+        return fn(...args)
+
+          // This will catch the promise
+          .catch((err) => {
+
+            // Handle the error immediately.
+            console.error('Ohh noo!');
+            console.error(err);
+          })
+      }
+    }
+    async function go(name) {
 
       // Start your engines
-      console.log('start');
-
-      // Wait until BREATHE gets a response on line 33 above, and assign to this variable
-      // if "await" is removed, you only get a promise
-      // "Await" means that the function is not executed UNTIL the promise above is either resolved OR rejected
+      console.log(`Starting for ${name}`);
       const res = await breathe(590);
 
       // Show breathe
@@ -55,12 +116,20 @@
       console.log(res3);
       const res4 = await breathe(1000);
       console.log(res4);
-      //
+      const res5 = await breathe(500);
+      console.log(res5);
+      const res6 = await breathe(300);
+      console.log(res6);
+      const res7 = await breathe(2500);
+      console.log(res7);
       await breathe(600);
-      console.log('end');
+      console.log(`End for ${luke}`);
     }
-    go();
 
+    // Take GO, wrap it in catchErrors, which gives a brand=new wrappedFuntion
+    const wrappedFunction = catchErrors(go);
+
+    wrappedFunction('Luke');
 
 
   </script>
