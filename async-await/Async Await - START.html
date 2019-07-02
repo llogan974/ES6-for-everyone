@@ -1,12 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<meta charset="UTF-8">
+
 <head>
   <title>Custom Promises</title>
 </head>
 
 <body>
   <script>
+    /*
+    Sync- wait for task before continuing
+    Async- start, but move on to the next part
+
+    What if we want flow control? For one thing to happen until another thing happens?
+
+    First, make an ASYNC function,
+    THEN do an AWAIT function
+
+    At its core, ASYNC AWAIT is just built on PROMISES
+
+    AWAIT can only work on an ASYNC function
+    */
+
+
+    // This is a function that uses PROMISES
+    function breathe(amount) {
+      return new Promise((resolve, reject) => {
+        if (amount < 500) {
+          reject('That is too small of a value');
+        }
+
+        // The values that are getting resolved are what we are returning
+        setTimeout(() => resolve(`Done for ${amount} ms`), amount);
+      });
+    }
+
+    // This is an ASYNC that waits on BREATHE
+    async function go() {
+
+      // Start your engines
+      console.log('start');
+
+      // Wait until BREATHE gets a response on line 33 above, and assign to this variable
+      // if "await" is removed, you only get a promise
+      // "Await" means that the function is not executed UNTIL the promise above is either resolved OR rejected
+      const res = await breathe(590);
+
+      // Show breathe
+      console.log(res);
+      const res2 = await breathe(2000);
+      console.log(res2);
+      const res3 = await breathe(3000);
+      console.log(res3);
+      const res4 = await breathe(1000);
+      console.log(res4);
+      //
+      await breathe(600);
+      console.log('end');
+    }
+    go();
+
+
 
   </script>
 </body>
