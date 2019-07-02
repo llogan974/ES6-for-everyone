@@ -7,6 +7,56 @@
 
 <body>
   <script>
+    /* What if we want to wait for a second before doing something? */
+
+    function breathe(amount) {
+
+      // Create a new PROMISE, a callback that takes two parameters
+      return new Promise((resolve, reject) => {
+
+        // Check a condition
+        if (amount < 500) {
+
+          // This message would go in the console
+          reject('that is too small!');
+        }
+
+        // If it passes the condition, execute the next line of code
+        setTimeout(() => resolve(`Done for ${amount} ms`), amount);
+      });
+    }
+
+    breathe(1000).then(res => {
+      console.log(res);
+      return breathe(500);
+    }).then(res => {
+      console.log(res);
+      return breathe(500);
+    }).then(res => {
+      console.log(res);
+      return breathe(200);
+    }).then(res => {
+      console.log(res);
+      return breathe(2000);
+    }).then(res => {
+      console.log(res);
+      return breathe(700);
+    }).then(res => {
+      console.log(res);
+      return breathe(1000);
+    }).then(res => {
+      console.log(res);
+      return breathe(3000);
+    }).then(res => {
+      console.log(res);
+      return breathe(500);
+    }).then(res => {
+      console.log(res);
+      return breathe(500);
+    }).catch(err => {
+      console.error(err);
+      console.error('You messed up!')
+    })
 
   </script>
 </body>
