@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Promisifying Functions</title>
+</head>
+
+<body>
+  <script>
+    /*
+    JS used:
+    navigator.geolocation.getCurrentPosition() to get position
+
+
+    What if there are callback based code where you need to use promises?
+     */
+
+
+    navigator.geolocation.getCurrentPosition(function (pos) {
+      console.log('it worked!');
+      console.log(pos);
+    }, function (err) {
+      console.log('it failed');
+      console.log(err);
+
+    });
+
+
+  </script>
+</body>
+
+</html>

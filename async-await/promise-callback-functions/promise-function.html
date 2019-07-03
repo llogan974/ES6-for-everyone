@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Promisifying Functions</title>
+</head>
+
+<body>
+    <script>
+        /*
+        Summary: Use JS to turn a callback function into a promise function.
+
+        JS USed:
+        new Promise
+        resolve, reject
+        async
+
+        The same as the callback function, bt changed to promise:
+
+         */
+
+        function getCurrentPosition() {
+
+            // Function will return a promise, with either resolve or reject to handle
+            // if the promise succeeds, or if the promise fails
+            return new Promise((resolve, reject) => {
+
+                // Pass in resolve if it is successful, or reject if it fails
+                navigator.geolocation.getCurrentPosition(resolve, reject);
+            });
+        }
+
+        // async is used because we have to use await until the promise is resolved
+        // So, do this on pageload, but continue other JS on the page.
+        async function go() {
+
+            // AWAIT the promise to return, before executing getCurrentPosition()
+            const pos = await getCurrentPosition();
+            console.log(pos);
+
+        }
+
+    </script>
+</body>
+
+</html>
