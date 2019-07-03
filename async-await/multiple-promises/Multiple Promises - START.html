@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<meta charset="UTF-8">
+
+
+<head>
+  <title>Async Await</title>
+</head>
+
+<body>
+  <script>
+    /*
+    JS Methods covered:
+    fetch
+    Promise.all
+    await
+
+    What if you want to fire off several things at the same time?
+    We want both to go at the same time.
+    Return the promose for both items:
+     */
+
+    async function go() {
+      const p1 = fetch('https://api.github.com/users/wesbos')
+      const p2 = fetch('https://api.github.com/users/stolinski')
+
+
+      // Wait for both responses to come back. They will return as a PROMISE,
+      // so you will need to map over the data:
+      const res = await Promise.all([p1, p2]);
+
+      // Take all the data that comes back, and map over it with .json
+      const dataPromises = res.map(r => r.json());
+
+      // Take all the promises, wait until they are mapped over with await
+      // destructure the response immediately as wes and scott
+      const [wes, scott] = await Promise.all(dataPromises);
+
+      console.log(wes, scott); //returns two objects: wes and scott
+
+    }
+
+    go();
+  </script>
+</body>
+
+</html>

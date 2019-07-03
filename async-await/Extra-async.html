@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="addJson">
+        <p>New Text Goes here</p>
+    </div>
+    <script>
+        /*
+        Callbacks, promises, and ASYNC AWAIT
+        From Traversy Media: https://www.youtube.com/watch?v=PoRJizFvM7s
+
+        ASYNC- something is going on, but you dont want to wait until it is done to continue
+        SYNC- something happens, and you wait until it is done before you proceed
+
+        CALLBACKS were used until ES6 when PROMISES were introduced
+        ES7: ASYNC AWAIT (still using promises)
+
+        promise.all - for multiple promises
+
+        There are two versions here: The first is a CALLBACK, the second is a PROMISE
+        */
+
+        // Create an array of objects
+        // const posts = [
+        //     { title: 'Post One', body: 'This is post one' },
+        //     { title: 'Post two', body: 'This is post two' },
+        // ];
+
+
+        // // Create a function that mimics the delay of a server call with setTimeout
+        // function getPosts() {
+
+        //     setTimeout(() => {
+
+        //         // Get posts, and put onto the page;
+        //         let output = '';
+
+        //         // Loop through, and grab the INDEX of each object
+        //         posts.forEach((post, index) => {
+        //             output += `
+        //             index is: ${index + 1}.
+        //             Title is:
+        //             <li>${post.title}</li>
+        //             <h2>${post.body}</h2>
+        //             `;
+
+        //         });
+        //         document.body.innerHTML = output;
+        //         // This only takes one second
+        //     }, 1000);
+        // }
+
+
+        // // New funtion will take in the post, and add it to the previous post array
+        // // Pull in post, and use a callback called "callback"
+        // function createPost(post, callback) {
+        //     setTimeout(() => {
+
+        //         // Push the post to the end of the array
+        //         posts.push(post);
+
+        //         // Run the callback of getPosts
+        //         callback();
+
+        //         // This takes longer then the previous section, so it needs a callback.
+        //     }, 2000);
+        // }
+
+        // // Call the function, and pass in an OBJECT and a CALLBACK (which is a function)
+        // createPost({ title: 'Post Three', body: 'This is post three' }, getPosts);
+
+
+
+
+        // // Create an array of objects
+        // const posts = [
+        //     { title: 'Post One', body: 'This is post one' },
+        //     { title: 'Post two', body: 'This is post two' },
+        // ];
+
+        // // Create the function, same as above
+        // function getPosts() {
+        //     setTimeout(() => {
+        //         let output = '';
+        //         posts.forEach((post, index) => {
+        //             output += `
+        //             index is: ${index + 1}.
+        //             Title is:
+        //             <li>${post.title}</li>
+        //             <h2>${post.body}</h2>
+        //             `;
+        //         });
+        //         document.body.innerHTML = output;
+        //     }, 1000);
+        // }
+
+        // // Instead of a callback, we want to return a promise
+        // function createPost(post) {
+        //     return new Promise((resolve, reject) => {
+        //         setTimeout(() => {
+        //             posts.push(post);
+
+        //             const error = false;
+
+        //             if (!error) {
+        //                 resolve();
+        //             } else {
+        //                 reject('Error: Something went wrong');
+        //             }
+        //         }, 2000);
+
+        //     });
+
+        // }
+
+        // // Use the function, passs in the post, and use .THEN because this is a promise
+        // // use .CATCH because this is an error
+        // createPost({ title: 'Post Three', body: 'This is post three' })
+        //     .then(getPosts)
+        //     .catch(err => console.log(err));
+
+
+        // // Create an array of objects
+        const posts = [
+            { title: 'Post One', body: 'This is post one' },
+            { title: 'Post two', body: 'This is post two' },
+        ];
+
+        // Create the function, same as above
+        function getPosts() {
+            setTimeout(() => {
+                let output = '';
+                posts.forEach((post, index) => {
+                    output += `
+                    index is: ${index + 1}.
+                    Title is:
+                    <li>${post.title}</li>
+                    <h2>${post.body}</h2>
+                    `;
+                });
+                document.body.innerHTML = output;
+            }, 1000);
+        }
+
+        // Same thing, with ASYNC AWAIT
+        function createPost(post) {
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    posts.push(post);
+
+                    const error = false;
+
+                    if (!error) {
+                        resolve();
+                    } else {
+                        reject('Error: Something went wrong');
+                    }
+                }, 2000);
+
+            });
+
+        }
+
+        // // ASYNC must be used to use AWAIT. It can only be used with PROMISES
+        // async function init() {
+
+        //     // AWAIT
+        //     await createPost({ title: 'Post Three', body: 'This is post three' });
+
+        //     // Do not do this function until createPost is completed
+        //     getPosts();
+        // }
+        // init();
+        var githubData = document.getElementsByClassName('addJson');
+
+        // Async Await with Fetch
+        async function fetchUsers() {
+
+            const res = await fetch('https://api.github.com/users/wesbos');
+
+            const data = await res.json();
+            for (var key in data) {
+                githubData[0].innerHTML += `
+                ${key}: ${data[key]}</br>
+                `
+            }
+            console.log(data);
+
+        }
+        fetchUsers();
+
+    </script>
+
+</body>
+
+</html>
+
+<!-- Jordyn's number needs to be updated= it is in the docuemtn. 9502 is the number.
+
+Julie took over part of Taylor;s territory;
+Daniele's counties are not correct;
+
+
+Julie Mitsler= new extension is 9467 in ND and SD, NE, KS, Missouri, Iowa, Minnesota, WI.  -->

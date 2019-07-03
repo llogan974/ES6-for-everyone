@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<meta charset="UTF-8">
+
+
+<head>
+    <title>Async Await</title>
+</head>
+
+<body>
+    <script>
+        /*
+        JS used:
+        map
+        .json()
+        await
+        Promise.all
+        fetch
+
+         */
+
+        // run this on load:
+        async function getData(names) {
+            // For each name, we will return a name, and fetch the data
+            const promises = names.map(name => fetch(`https://api.github.com/users/${name}`))
+
+                // immediately turn into json data
+                .then(r => r.json());
+
+            // After the data returns with await
+            const [wes, scott] = await Promise.all(promises);
+
+            console.log(wes, scott); //returns the two objects with data.
+        }
+
+        //   Create a function, pass in array of two names:
+        getData(['wesbos', 'stolinski']);
+    </script>
+</body>
+
+</html>
