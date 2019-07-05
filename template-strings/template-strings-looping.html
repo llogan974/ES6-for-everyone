@@ -13,9 +13,21 @@
   ];
 
 /*
+
+JS Used:
+template strings
+map
+.join()
+
 You can nest template literals inside of one another.
 In this instance you are doing looping with a map method.
  */
+
+//  Map over each dog, and return with the html added
+
+// This gives you a template string inside a template string
+
+// .join will join the array, and remove the comma.
   const markup = `
     <ul class="dogs">
       ${dogs.map(dog => `
