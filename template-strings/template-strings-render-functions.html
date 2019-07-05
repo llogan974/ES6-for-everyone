@@ -6,6 +6,18 @@
 </head>
 <body>
 <script>
+
+  /*
+
+  JS Used:
+.map()
+
+
+  Problem: Access the keywords in the beer object.
+  Solution: Use a FUNCTION inside the template tag, and create the function above the template literal.
+
+
+   */
   // What if you want to nest several functions deep?
   // Create a RENDER FUNCTION, different components to handle the functions
 
@@ -27,6 +39,8 @@
 
 
 // Run the 'renderKeywords' function inside of this template literal.
+// It will warget the array WITHIN the object BEER, and run the function on each item
+// This will put all keywords in an <li>
   const markup = `
     <div class="beer">
       <h2>${beer.name}</h2>

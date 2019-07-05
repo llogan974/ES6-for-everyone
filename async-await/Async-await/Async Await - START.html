@@ -10,16 +10,25 @@
 <body>
   <script>
     /*
+    Problem: You want to start something on page load, and wait for results before continuing.
+    Solution: Async, await
+
+    JS USed:
+    new Promist
+    reject
+    resolve
+    await
+    async
+
     Sync- execute the JS, and wait until it is completed before moving on
     Async- start, but move on to the next part. API's are hit,
     and when the data returns(promises), the AWAIT can execute.
-
-    What if we want flow control? For one thing to happen until another thing happens?
 
     First, make an ASYNC function,
     THEN do an AWAIT function
 
     At its core, ASYNC AWAIT is just built on PROMISES
+    You need PROMISES to use ASYNC AWAIT
 
     AWAIT can only work on an ASYNC function
 
@@ -40,42 +49,42 @@
     }
 
     // This is an ASYNC that waits on BREATHE
-    // async function go() {
+    async function go() {
 
-    //   // To catch errors, wrap the whole thing in a try-catch block:
-    //   try {
-    //     // Start your engines
-    //     console.log('start');
+      // To catch errors, wrap the whole thing in a try-catch block:
+      try {
+        // Start your engines
+        console.log('start');
 
-    //     // Wait until BREATHE gets a response on line 33 above, and assign to this variable
-    //     // if "await" is removed, you only get a promise
-    //     // "Await" means that the function is not executed UNTIL the promise above is either resolved OR rejected
-    //     const res = await breathe(590);
+        // Wait until BREATHE gets a response on line 33 above, and assign to this variable
+        // if "await" is removed, you only get a promise
+        // "Await" means that the function is not executed UNTIL the promise above is either resolved OR rejected
+        const res = await breathe(590);
 
-    //     // Show breathe
-    //     console.log(res);
-    //     const res2 = await breathe(2000);
-    //     console.log(res2);
-    //     const res3 = await breathe(3000);
-    //     console.log(res3);
-    //     const res4 = await breathe(1000);
-    //     console.log(res4);
-    //     const res5 = await breathe(500);
-    //     console.log(res5);
-    //     const res6 = await breathe(300);
-    //     console.log(res6);
-    //     const res7 = await breathe(2500);
-    //     console.log(res7);
-    //     await breathe(600);
-    //     console.log('end');
+        // Show breathe
+        console.log(res);
+        const res2 = await breathe(2000);
+        console.log(res2);
+        const res3 = await breathe(3000);
+        console.log(res3);
+        const res4 = await breathe(1000);
+        console.log(res4);
+        const res5 = await breathe(500);
+        console.log(res5);
+        const res6 = await breathe(300);
+        console.log(res6);
+        const res7 = await breathe(2500);
+        console.log(res7);
+        await breathe(600);
+        console.log('end');
 
-    //     // If there is an error, do this:
-    //   } catch (err) {
-    //     console.error('You broke the internet!!!!!');
-    //     console.error(err);
-    //   }
+        // If there is an error, do this:
+      } catch (err) {
+        console.error('You broke the internet!!!!!');
+        console.error(err);
+      }
 
-    // }
+    }
     // To catch errors, wrap the whole thing in a try-catch block:
 
 

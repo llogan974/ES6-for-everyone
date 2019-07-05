@@ -11,16 +11,28 @@
 </head>
 <body>
 <script>
+/*
+Problem: Browser adds the variables.
+Solution: We can control how the template literal is displayed.
+
+JS used:
+
+ */
+
 
   // Ability to TAG things.
   // Make a function like this:
   // The three dots are used to take all values passed into an argument
+  // This takes in the string, and ALL arguments passed into the string as "...values"
   function highlight(strings, ...values) {
     // Debugger will stop execution and help explain things like values. Found in console under sources > scope
     // debugger;
+
     let str = '';
-    // You can use one of many loops: map, foreach, etc
+
+    // Loop over to get the value from the string (the string is the template literal)
     strings.forEach((string, i) => {
+
       // Content Editable allows you to add change the text on the front end of the page. Pretty cool!
       str += `${string} <span contenteditable class="hl">${values[i] || ''}</span>`;
     });
@@ -30,7 +42,7 @@
   const name = 'Snickers';
   const age = 100;
 
-// Return the name of the function in front of the template. Whatever the function is going to be is what "sentence" becomes
+// Return the name of the function in front of the template. Whatever the function is going to be is what "sentence" becomes. So, we are applying "highlight" tp the template literal
   const sentence = highlight`My dog's name is ${name} and he is ${age} years old`;
   document.body.innerHTML = sentence;
   console.log(sentence);

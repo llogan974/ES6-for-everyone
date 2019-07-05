@@ -7,6 +7,17 @@
 
 <body>
   <script>
+    /*
+    Problem: We want to wait before something happens
+    Solution: Promises
+
+    JS Used:
+    new-Promise
+    Resolve
+    Reject
+    Err
+    */
+
     /* What if we want to wait for a second before doing something? */
 
     function breathe(amount) {
@@ -53,7 +64,10 @@
     }).then(res => {
       console.log(res);
       return breathe(500);
-    }).catch(err => {
+    })
+
+    // Catch the error if the promise doesnt resolve.
+    .catch(err => {
       console.error(err);
       console.error('You messed up!')
     })

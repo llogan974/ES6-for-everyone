@@ -7,10 +7,21 @@
 <body>
 
 <script>
+/*
 
+
+
+JS Used:
+.startsWith()
+.includes()
+.endswith()
+.includes()
+.repeat()
+
+ */
 
   /* To make it case insensitive, you still need to use regex
-  Strings come with 4 methods for strings. 
+  Strings come with 4 methods for strings.
   Examples: does the course start with RFB?
    */
 const course = 'RFB2';
@@ -26,7 +37,7 @@ const colour = 'Royal Blue';
 // .endsWith()
 // Check if it includes RT at a certain point in the string, and ignore the rest:
 const accountNumber = '825242631RT0001';
-accountNumber.endsWith('RT', 11);
+accountNumber.endsWith('RT', 11); //Check if it endswith, only use first 11 digits
 
 // .includes()
 // Check if it includes this string anywhere
@@ -34,17 +45,18 @@ const flightNumber = '20-AC2018-jz';
 flightNumber.includes('AC2');
 
 // .repeat()
-// Allows you to take a string and repeat it. 
+// Allows you to take a string and repeat it.
 // Use this to align your text on the page
+
 
 // Take in the string and the length with a default value of 20
 function leftPad(str, length = 20) {
 
   // Use template literal, add a blank and repeat the length.
   // Then, repeat the blank space.
-  // THen, calculate the number of times to repeat the blank: Lenght MINUS the lenght of the string, then display the value of the string. 
-  
-  // Result: 
+  // THen, calculate the number of times to repeat the blank: Lenght MINUS the lenght of the string, then display the value of the string.
+
+  // Result:
   return `→ ${' '.repeat(length - str.length)}${str}`;
 }
 
