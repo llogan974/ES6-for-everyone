@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Generators</title>
+</head>
+<body>
+<script>
+
+  /*
+  JS used:
+  yield
+  .next()
+
+
+  Generators are functions you can start and stop, or pass additional info in at a later time
+  The generator below will need to be called 3 times to get all three values
+  */
+  // function* listPeople() {
+  //   let i = 0;
+
+  //   // Yield will return this item, until the function is called again.
+  //   yield i;
+  //   i++;
+  //   yield i;
+  //   i++;
+  //   yield i;
+  // }
+
+  // const people = listPeople();
+
+  // // This will return an object:
+  // console.log(people.next());
+
+  const inventors = [
+    { first: 'Albert', last: 'Einstein', year: 1879 },
+    { first: 'Isaac', last: 'Newton', year: 1643 },
+    { first: 'Galileo', last: 'Galilei', year: 1564 },
+    { first: 'Marie', last: 'Curie', year: 1867 },
+    { first: 'Johannes', last: 'Kepler', year: 1571 },
+    { first: 'Nicolaus', last: 'Copernicus', year: 1473 },
+    { first: 'Max', last: 'Planck', year: 1858 },
+  ];
+
+  function* loop(arr) {
+    console.log(inventors);
+
+    // For each loop, we get 1 item
+    for (const item of arr) {
+
+      // We are getting 1 yield, not 3 yields;
+      yield item;
+    }
+  }
+
+  const inventorGen = loop(inventors);
+
+
+</script>
+</body>
+</html>
