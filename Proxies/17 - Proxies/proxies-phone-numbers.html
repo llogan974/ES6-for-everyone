@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Proxies!</title>
+</head>
+<body>
+<script>
+
+/*
+Create a phone handler
+ */
+  const phoneHandler = {
+    set(target, name, value) {
+
+      // Only keep the NUMBERS that are stored
+      target[name] = value.match(/[0-9]/g).join('');
+    },
+    get(target, name) {
+      return target[name].replace(/(\d{3})(\d{3})(\d{4})/, '($1) $2-$3');
+    }
+  }
+
+// Create the proxy
+  const phoneNumbers = new Proxy({}, phoneHandler);
+</script>
+</body>
+</html>

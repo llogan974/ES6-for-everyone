@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Proxies!</title>
+</head>
+<body>
+<script>
+/*
+Allow you to change the default behavior of many object behaviors
+
+What if you want to overwrite other properties of an object?
+
+
+ */
+
+  const person = { name: 'Wes', age: 100 };
+
+  /*
+  A proxy takes
+  1) an object it proxies
+  2) a handler, which specifies all operations I wish to rewrite.
+   */
+  const personProxy = new Proxy(person, {
+
+    // Define a get, an object with methods
+    get(target, name) {
+
+      // Instead of personProxy.name, you will get the following:, called a "trap"
+      console.log('someone is asking for ', target, name);
+      return target[name].toUpperCase();
+    },
+
+    // What if there is a bunch of upper case?
+    // You want to set something, it will give yout he following
+    set(target, name, value) {
+      if(typeof value === 'string') {
+        target[name] = value.trim().toUpperCase() + '✂️';
+      }
+    }
+  });
+
+  personProxy.name = 'Wesley';
+</script>
+</body>
+</html>

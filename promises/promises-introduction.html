@@ -20,9 +20,9 @@ assigned to.
 */
 
 
-const postsPromise = fetch('https://wesbos.com/wp-json/wp/v2/posts');
+const postsPromise = fetch('https://wesbos.com/wp-json/wp/v2/posts')
 
-postsPromise
+// postsPromise
 
 // .then is a callback, and runs ONLY when data comes back
   .then(data => data.json())
